@@ -1,16 +1,22 @@
 import React, { useRef, useState } from 'react';
 import './App.css';
 
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from 'firebase/app'; 
+     import 'firebase/firestore';
+     import 'firebase/auth';  
 import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
-  // your config
+  apiKey: "AIzaSyAbmI6CMQSq8W_ZJ9eDsLRzXgU1Asn__BY",
+  authDomain: "superchat-af27f.firebaseapp.com",
+  projectId: "superchat-af27f",
+  storageBucket: "superchat-af27f.appspot.com",
+  messagingSenderId: "586664676202",
+  appId: "1:586664676202:web:f3efe5f2c8c80c918c3313",
+  measurementId: "G-SRR6WBW8W4"
 })
 
 const auth = firebase.auth();
@@ -74,6 +80,7 @@ function ChatRoom() {
     e.preventDefault();
 
     const { uid, photoURL } = auth.currentUser;
+    console.log(photoURL)
 
     await messagesRef.add({
       text: formValue,
@@ -110,6 +117,7 @@ function ChatMessage(props) {
   const { text, uid, photoURL } = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+  // console.log(photoURL)
 
   return (<>
     <div className={`message ${messageClass}`}>
