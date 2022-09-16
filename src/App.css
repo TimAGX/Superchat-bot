@@ -124,6 +124,7 @@ p {
   position: relative;
   color: white;
   text-align: center;
+  margin: 0 auto;
 }
 
 .message {
@@ -153,3 +154,9 @@ img {
   margin: 2px 5px;
 }
 
+/* .center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+} */
